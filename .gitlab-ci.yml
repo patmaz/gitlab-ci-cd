@@ -12,7 +12,6 @@ image: node:latest
     stage: build
     script:
       - yarn
-      - yarn global add typescript
       - tsc *.ts /build
       - ls
     artifacts:
