@@ -12,7 +12,8 @@ build:
   stage: build
   script:
     - yarn
-    - tsc *.ts /build
+    - yarn global add typescript
+    - yarn run build
     - ls
   artifacts:
     paths:
