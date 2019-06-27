@@ -1,24 +1,24 @@
 image: node:latest
 
-  stages:
-    - build
-    - run
+stages:
+  - build
+  - run
 
-  cache:
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  script:
+    - yarn
+    - tsc *.ts /build
+    - ls
+  artifacts:
     paths:
       - node_modules/
+      - build/
 
-  build:
-    stage: build
-    script:
-      - yarn
-      - tsc *.ts /build
-      - ls
-    artifacts:
-      paths:
-        - node_modules/
-        - build/
-
-  run:
-    stage: run
-    script: yarn run start
+run:
+  stage: run
+  script: yarn run start
